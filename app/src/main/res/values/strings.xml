@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SNS</string>
+
+    <string name="post_writer">작성자</string>
+    <string name="post_description">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+    <string name="post_writer_2">작성자</string>
+    <string name="post_description_2">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+
 </resources>
