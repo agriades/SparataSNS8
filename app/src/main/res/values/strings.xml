@@ -9,4 +9,5 @@
     <string name="compare_id">아이디 중복 확인</string>
     <string name="check">확인</string>
     <string name="mail">이메일</string>
+    <string name="compare_password">비밀번호 확인</string>
 </resources>

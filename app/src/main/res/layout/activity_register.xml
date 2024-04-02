@@ -98,31 +98,31 @@
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/compareId"
+        android:id="@+id/comparePassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/idEditTextView"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="25dp"
         android:layout_gravity="start"
         android:layout_marginTop="16dp"
-        android:text="@string/compare_id"
+        android:text="@string/compare_password"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         />
 
     <EditText
-        android:id="@+id/compareEditId"
+        android:id="@+id/compareEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/compareId"
+        app:layout_constraintTop_toBottomOf="@id/comparePassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/compareButton"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/id"
+        android:hint="@string/password"
         android:inputType="text"/>
 
     <Button
@@ -130,9 +130,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/compareEditId"
-        app:layout_constraintBottom_toBottomOf="@id/compareEditId"
-        app:layout_constraintStart_toEndOf="@id/compareEditId"
+        app:layout_constraintTop_toTopOf="@id/compareEdit"
+        app:layout_constraintBottom_toBottomOf="@id/compareEdit"
+        app:layout_constraintStart_toEndOf="@id/compareEdit"
         android:text="@string/check"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -142,7 +142,7 @@
         android:id="@+id/passwordTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/compareEditId"
+        app:layout_constraintTop_toBottomOf="@id/idEditTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="25dp"
@@ -168,10 +168,10 @@
         android:id="@+id/openButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditTextView"
+        app:layout_constraintTop_toBottomOf="@id/compareEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="16dp"
         android:text="@string/into"
         android:background="@drawable/button_background2"/>

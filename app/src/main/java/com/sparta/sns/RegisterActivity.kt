@@ -19,8 +19,8 @@ class RegisterActivity : AppCompatActivity(){
         findViewById(R.id.compareButton)
     }
 
-    private val compareEditId: EditText by lazy {
-        findViewById(R.id.compareEditId)
+    private val compareEdit: EditText by lazy {
+        findViewById(R.id.compareEdit)
     }
 
     private val nameEditTextView: EditText by lazy {
@@ -47,6 +47,7 @@ class RegisterActivity : AppCompatActivity(){
     }
 
     private fun initViews() {
+
         openButton.setOnClickListener {
             val data = UserEntity(
                 id = idEditTextView.text.toString(),
@@ -75,13 +76,16 @@ class RegisterActivity : AppCompatActivity(){
         }
     }
 
+
+
     private fun bindViews() {
         compareButton.setOnClickListener {
-            if(idEditTextView.text.toString() == compareEditId.text.toString()
-                && idEditTextView.text.toString().isNotEmpty()) {
+            if(passwordEditTextView.text.toString() == compareEdit.text.toString()
+                && compareEdit.text.toString().isNotEmpty()) {
                 compareButton.setBackgroundResource(R.drawable.button_compare)
             } else {
                 Toast.makeText(this, "아이디가 중복되었거나 입력되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
         }
     }

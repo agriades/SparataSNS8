@@ -124,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
             if(comPare()) {
                 val intent = Intent(this@LoginActivity, MainActivity::class.java) //메인페이지로 이동
-                intent.putExtra("USER_DATA", data)
+                intent.putExtra("USER_DATA", data) //name값 정의필요
                 intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList)
                 startActivity(intent)
             } else {
