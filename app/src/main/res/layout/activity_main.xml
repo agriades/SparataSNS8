@@ -5,15 +5,126 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainPageActivity">
 
+    <!-- 상단을 원래는 fragment로 구현해야 하나 이번 과제엔 사용하지 않으므로 chain을 적용 -->
     <TextView
+        android:id="@+id/btn_member_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="이름1"
+        android:gravity="center"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/btn_member_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="이름2"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/btn_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
+        app:layout_constraintStart_toEndOf="@id/btn_member_1"
+        app:layout_constraintEnd_toStartOf="@id/btn_member_3"/>
+    <TextView
+        android:id="@+id/btn_member_3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="이름3"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/btn_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
+        app:layout_constraintStart_toEndOf="@id/btn_member_2"
+        app:layout_constraintEnd_toStartOf="@id/btn_member_4"/>
+    <TextView
+        android:id="@+id/btn_member_4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="이름4"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/btn_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
+        app:layout_constraintStart_toEndOf="@id/btn_member_3"
+        app:layout_constraintEnd_toStartOf="@id/btn_member_user"/>
+    <TextView
+        android:id="@+id/btn_member_user"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="USER"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/btn_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FFEB3B"/>
+
+
+    <!-- 게시글 하나. TextView, ImageView, TextView 순 -->
+    <TextView
+        android:id="@+id/tv_writer_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="작성자"
+        app:layout_constraintTop_toBottomOf="@id/btn_member_1"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/iv_photo_1"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/meverse_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_writer_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_disc_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="안녕하세용!"
+        app:layout_constraintTop_toBottomOf="@id/iv_photo_1"/>
 
+    <!-- 게시글 하나. TextView, ImageView, TextView 순 -->
+    <TextView
+        android:id="@+id/tv_writer_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="작성자"
+        app:layout_constraintTop_toBottomOf="@id/tv_disc_1"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/iv_photo_2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/meverse_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_writer_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_disc_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="안녕하세용!"
+        app:layout_constraintTop_toBottomOf="@id/iv_photo_2"/>
+
+    <!-- 게시글 하나. TextView, ImageView, TextView 순 -->
+    <TextView
+        android:id="@+id/tv_writer_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="작성자"
+        app:layout_constraintTop_toBottomOf="@id/tv_disc_2"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/iv_photo_3"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/meverse_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_writer_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_disc_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="안녕하세용!"
+        app:layout_constraintTop_toBottomOf="@id/iv_photo_3"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
