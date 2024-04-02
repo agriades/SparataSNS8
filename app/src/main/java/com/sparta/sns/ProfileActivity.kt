@@ -38,8 +38,8 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setUpData() {
         val intent = intent
-        val id = intent.getStringExtra("name")?: "입력된 내용이 없습니다."
-        val pw = intent.getStringExtra("id")?: "입력된 내용이 없습니다."
+        val id = intent.getStringExtra("name") ?: "입력된 내용이 없습니다."
+        val pw = intent.getStringExtra("id") ?: "입력된 내용이 없습니다."
         tvName.text = "이름: $id"
         tvId.text = "아이디: $pw"
     }
