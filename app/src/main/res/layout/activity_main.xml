@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:text="@string/post_description"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/post_ll_2"
         android:layout_width="match_parent"
