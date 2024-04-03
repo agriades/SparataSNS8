@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
     }
 }
 //깃헙 모험...
