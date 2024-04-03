@@ -16,9 +16,6 @@
             android:name=".DetailPageActivity"
             android:exported="false" />
         <activity
-            android:name=".MyPageActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainPageActivity"
             android:exported="true">
             <intent-filter>
