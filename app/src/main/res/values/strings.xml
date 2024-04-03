@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SNS</string>
+ <!-- &#160; 으로 맨 앞 공백 추가 가능. 그냥 작성하면 앞 공백은 지워져서 찾았어요! -->
+    <string name="post_writer_who">&#160;님이 포스트를 올렸습니다.</string>
+    <string name="post_description">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+    <string name="post_description_2">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+
 </resources>
