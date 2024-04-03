@@ -88,11 +88,12 @@
         바깥으로 빠져나오는 곳은 자동 크롭되었으면 좋겠는데...-->
         <ImageView
             android:id="@+id/post_iv_photo"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="12dp"
-            android:src="@drawable/meverse_profile"/>
+            android:src="@drawable/meverse_profile"
+            android:scaleType="centerCrop" />
         <!-- 1줄만 표시하게 수정해야 -->
         <TextView
             android:id="@+id/post_tv_description"
@@ -120,11 +121,12 @@
         바깥으로 빠져나오는 곳은 자동 크롭되었으면 좋겠는데...-->
         <ImageView
             android:id="@+id/post_iv_photo_2"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="12dp"
-            android:src="@drawable/meverse_profile"/>
+            android:src="@drawable/meverse_profile"
+            android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/post_tv_description_2"
             android:layout_width="match_parent"
