@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/titleImageView"
+        android:id="@+id/title_imageview"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="25dp"
@@ -21,7 +20,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/idTextView"
+        android:id="@+id/id_textview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -33,10 +32,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleImageView" />
+        app:layout_constraintTop_toBottomOf="@id/title_imageview" />
 
     <EditText
-        android:id="@+id/idEditTextView"
+        android:id="@+id/id_edit_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -46,10 +45,10 @@
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextView" />
+        app:layout_constraintTop_toBottomOf="@id/id_textview" />
 
     <TextView
-        android:id="@+id/passwordTextView"
+        android:id="@+id/password_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -60,10 +59,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idEditTextView" />
+        app:layout_constraintTop_toBottomOf="@id/id_edit_textView" />
 
     <EditText
-        android:id="@+id/passwordEditTextView"
+        android:id="@+id/password_edit_textview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -75,10 +74,10 @@
         app:counterMaxLength="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordTextView" />
+        app:layout_constraintTop_toBottomOf="@id/password_textView" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
+        android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -90,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditTextView"
+        app:layout_constraintTop_toBottomOf="@id/password_edit_textview"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -103,6 +102,6 @@
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@id/login_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
