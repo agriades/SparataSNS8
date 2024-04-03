@@ -78,7 +78,7 @@ class RegisterActivity : AppCompatActivity(){
         compareButton.setOnClickListener {
             if(passwordEditTextView.text.toString() == compareEdit.text.toString()
                 && compareEdit.text.toString().isNotEmpty()) {
-                compareButton.setBackgroundResource(R.drawable.button_compare)
+                compareButton.setBackgroundResource(R.drawable.bg_register_bt)
             } else {
                 Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

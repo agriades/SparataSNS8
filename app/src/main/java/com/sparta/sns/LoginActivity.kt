@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
                 if(idEditTextView.length() > 0 && passwordEditTextView.length() > 0) {
                     loginButton.isClickable = true
                     loginButton.isEnabled = true
-                    loginButton.setBackgroundResource(R.drawable.button_background2)
+                    loginButton.setBackgroundResource(R.drawable.bg_login_bt_def)
                 } else {
                     loginButton.isEnabled = false
                     loginButton.isClickable = false
@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
                 if(passwordEditTextView.length() > 0 && idEditTextView.length() > 0) {
                     loginButton.isClickable = true
                     loginButton.isEnabled = true
-                    loginButton.setBackgroundResource(R.drawable.button_background2)
+                    loginButton.setBackgroundResource(R.drawable.bg_login_bt_def)
                 } else {
                     loginButton.isClickable = false
                     loginButton.isEnabled = false
