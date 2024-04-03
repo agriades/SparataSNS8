@@ -22,6 +22,7 @@ class MainPageActivity : AppCompatActivity() {
         //상단 4+인 유저 정보: 우선 고정해 작성 후 추가 과제 시 유동성 고려하기로 결정함.
 
         initData()
+
         myPageButton.text = "바뀜"  //여기서 회원가입 페이지에서 받은 이름 정보를 표기해야 합니다.
         myPageIntent = Intent(this, MyPageActivity::class.java)  //MyPageActivity로 이동하는 부분까지만 작성
 

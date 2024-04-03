@@ -13,58 +13,63 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_member_1"
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:text="이름1"
         android:gravity="center"
+        android:text="이름1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_member_2"
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:text="이름2"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        android:text="이름2"
         app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_3"
         app:layout_constraintStart_toEndOf="@id/tv_member_1"
-        app:layout_constraintEnd_toStartOf="@id/tv_member_3"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1" />
+
     <TextView
         android:id="@+id/tv_member_3"
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:text="이름3"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        android:text="이름3"
         app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_4"
         app:layout_constraintStart_toEndOf="@id/tv_member_2"
-        app:layout_constraintEnd_toStartOf="@id/tv_member_4"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1" />
+
     <TextView
         android:id="@+id/tv_member_4"
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:text="이름4"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        android:text="이름4"
         app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_user"
         app:layout_constraintStart_toEndOf="@id/tv_member_3"
-        app:layout_constraintEnd_toStartOf="@id/tv_member_user"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1" />
+
     <TextView
         android:id="@+id/tv_member_user"
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:text="USER"
+        android:background="@drawable/meverse_color_background"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        android:text="USER"
         app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/meverse_color_background"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1" />
 
 
     <!-- 게시글 하나. TextView, ImageView, TextView 순.
@@ -74,10 +79,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="20dp"
-        android:orientation="vertical"
         android:background="@drawable/post_preview_shape"
+        android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/iv_top_bar">
+
+        <!-- "작성자명"과 "님이 포스트를 올렸습니다." 중 "작성자명"에만 볼드 처리 하면
+         보기 깔끔할텐데, 각 게시글을 LinearLayout으로 묶어서 추가 구현 시 수정하려고 합니다!-->
         <TextView
             android:id="@+id/post_tv_writer"
             android:layout_width="wrap_content"
@@ -92,14 +100,17 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="12dp"
-            android:src="@drawable/meverse_profile"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/meverse_profile" />
         <!-- 1줄만 표시하게 수정해야 -->
         <TextView
             android:id="@+id/post_tv_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/post_description"/>
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:maxLines="2"
+            android:text="@string/post_description" />
     </LinearLayout>
 
     <LinearLayout
@@ -107,16 +118,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="20dp"
-        android:orientation="vertical"
         android:background="@drawable/post_preview_shape"
+        android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/post_ll">
+
         <TextView
             android:id="@+id/post_tv_writer_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/post_writer_who"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
         <!--사진 크기가 가로:세로 = 16:9,
         바깥으로 빠져나오는 곳은 자동 크롭되었으면 좋겠는데...-->
         <ImageView
@@ -125,12 +137,16 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="12dp"
-            android:src="@drawable/meverse_profile"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/meverse_profile" />
+
         <TextView
             android:id="@+id/post_tv_description_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/post_description_2"/>
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:maxLines="2"
+            android:text="@string/post_description_2" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
