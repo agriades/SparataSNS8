@@ -17,4 +17,14 @@
     <string name="post_writer_who">&#160;님이 포스트를 올렸습니다.</string>
     <string name="post_description">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
     <string name="post_description_2">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+    <string name="name">이름</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="login">로그인</string>
+    <string name="register">회원가입</string>
+    <string name="into">등록하기</string>
+    <string name="compare_id">아이디 중복 확인</string>
+    <string name="check">확인</string>
+    <string name="mail">이메일</string>
+    <string name="compare_password">비밀번호 확인</string>
 </resources>
