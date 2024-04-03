@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
-        android:id="@+id/btn_member_1"
+        android:id="@+id/tv_member_1"
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:text="이름1"
@@ -26,43 +26,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
-        android:id="@+id/btn_member_2"
+        android:id="@+id/tv_member_2"
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:text="이름2"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/btn_member_1"
-        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
-        app:layout_constraintStart_toEndOf="@id/btn_member_1"
-        app:layout_constraintEnd_toStartOf="@id/btn_member_3"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintStart_toEndOf="@id/tv_member_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_3"/>
     <TextView
-        android:id="@+id/btn_member_3"
+        android:id="@+id/tv_member_3"
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:text="이름3"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/btn_member_1"
-        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
-        app:layout_constraintStart_toEndOf="@id/btn_member_2"
-        app:layout_constraintEnd_toStartOf="@id/btn_member_4"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintStart_toEndOf="@id/tv_member_2"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_4"/>
     <TextView
-        android:id="@+id/btn_member_4"
+        android:id="@+id/tv_member_4"
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:text="이름4"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/btn_member_1"
-        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
-        app:layout_constraintStart_toEndOf="@id/btn_member_3"
-        app:layout_constraintEnd_toStartOf="@id/btn_member_user"/>
+        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
+        app:layout_constraintStart_toEndOf="@id/tv_member_3"
+        app:layout_constraintEnd_toStartOf="@id/tv_member_user"/>
     <TextView
-        android:id="@+id/btn_member_user"
+        android:id="@+id/tv_member_user"
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:text="USER"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/btn_member_1"
-        app:layout_constraintBottom_toBottomOf="@id/btn_member_1"
+        app:layout_constraintTop_toTopOf="@id/tv_member_1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_member_1"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/meverse_color_background"/>
 
