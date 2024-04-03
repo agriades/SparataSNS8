@@ -14,9 +14,6 @@ import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.internal.TextWatcherAdapter
 
 class LoginActivity : AppCompatActivity() {
-    /*var id: String? = ""
-    var name: String? = ""
-    var password: String? = ""*/
     private lateinit var data: UserEntity
     private val dataList = ArrayList<UserEntity>()
 
@@ -43,9 +40,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if(result.resultCode == Activity.RESULT_OK) {
-            /*id = result.data?.getStringExtra(MY_LOGIN_ID)
-            password = result.data?.getStringExtra(MY_LOGIN_PASSWORD)
-            name = result.data?.getStringExtra(MY_LOGIN_NAME)*/
 
             data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 result.data?.getParcelableExtra(MY_LOGIN_DATA, UserEntity::class.java)!!
@@ -99,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun comPare() : Boolean {
+    private fun comPare() : Boolean { //회원가입-> 로그인 -> 로그아웃 -> 로그인 할떄 데이터 손실 방지
         for(i in 0 until dataList.size) {
             if(idEditTextView.text.toString() == dataList[i].id && passwordEditTextView.text.toString() == dataList[i].password) {
                 data.apply {
@@ -139,9 +133,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        /*const val MY_LOGIN_NAME = "myloginkey"
-        const val MY_LOGIN_ID = "myloginid"
-        const val MY_LOGIN_PASSWORD = "myloginpassword"*/
         const val MY_LOGIN_DATA = "mylogindata"
     }
 }

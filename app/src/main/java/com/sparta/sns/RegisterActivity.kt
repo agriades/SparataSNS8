@@ -3,7 +3,6 @@ package com.sparta.sns
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,7 @@ class RegisterActivity : AppCompatActivity(){
         findViewById(R.id.openButton)
     }
 
-    private val compareButton: Button by lazy {
+    private val compareButton: AppCompatButton by lazy {
         findViewById(R.id.compareButton)
     }
 
@@ -67,9 +66,6 @@ class RegisterActivity : AppCompatActivity(){
             }
 
             setResult(Activity.RESULT_OK, Intent().apply {
-                /*putExtra(LoginActivity.MY_LOGIN_NAME, nameEditTextView.text.toString())
-                putExtra(LoginActivity.MY_LOGIN_ID, idEditTextView.text.toString())
-                putExtra(LoginActivity.MY_LOGIN_PASSWORD, passwordEditTextView.text.toString())*/
                 putExtra(LoginActivity.MY_LOGIN_DATA, data)
             })
             finish()
@@ -84,7 +80,7 @@ class RegisterActivity : AppCompatActivity(){
                 && compareEdit.text.toString().isNotEmpty()) {
                 compareButton.setBackgroundResource(R.drawable.button_compare)
             } else {
-                Toast.makeText(this, "아이디가 중복되었거나 입력되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
         }
