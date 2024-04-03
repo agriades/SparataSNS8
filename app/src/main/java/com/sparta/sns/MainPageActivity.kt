@@ -11,6 +11,7 @@ class MainPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //유동 vs 고정? 4명을 고정하면 데이터 보낼 필요 없음. 준식님과 의논
 
         //USER 버튼을 불러옴
         val myPageButton = findViewById<TextView>(R.id.btn_member_user)
