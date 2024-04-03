@@ -9,171 +9,169 @@
         android:id="@+id/titleImageView"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
         android:src="@drawable/image1"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/mailTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titleImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="25dp"
         android:layout_gravity="start"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:text="@string/mail"
-        android:textSize="18sp"
         android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleImageView" />
 
     <EditText
         android:id="@+id/mailEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mailTextView"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/mail"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mailTextView" />
 
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/mailEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="25dp"
         android:layout_gravity="start"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:text="@string/name"
-        android:textSize="18sp"
         android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mailEditTextView" />
 
     <EditText
         android:id="@+id/nameEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/name"
-        android:inputType="text" />
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView" />
 
     <TextView
         android:id="@+id/idTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/nameEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="25dp"
         android:layout_gravity="start"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:text="아이디"
-        android:textSize="18sp"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEditTextView" />
 
     <EditText
         android:id="@+id/idEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextView"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/id"
-        android:inputType="text" />
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idTextView" />
 
     <TextView
         android:id="@+id/comparePassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="25dp"
         android:layout_gravity="start"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:text="@string/compare_password"
-        android:textSize="18sp"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditTextView" />
 
     <EditText
         android:id="@+id/compareEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/comparePassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/compareButton"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
-        android:inputType="text"/>
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@id/compareButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/comparePassword" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/compareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/compareEdit"
-        app:layout_constraintBottom_toBottomOf="@id/compareEdit"
-        app:layout_constraintStart_toEndOf="@id/compareEdit"
+        android:background="@drawable/button_compare_false"
         android:text="@string/check"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:background="@drawable/button_compare_false"/>
+        app:layout_constraintBottom_toBottomOf="@id/compareEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/compareEdit"
+        app:layout_constraintTop_toTopOf="@id/compareEdit" />
 
     <TextView
         android:id="@+id/passwordTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/idEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:text="@string/password"
-        android:textSize="18sp"
         android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idEditTextView" />
 
     <EditText
         android:id="@+id/passwordEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/passwordTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/openButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/compareEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background2"
         android:text="@string/into"
-        android:background="@drawable/button_background2"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/compareEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

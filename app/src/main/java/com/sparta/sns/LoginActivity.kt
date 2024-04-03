@@ -119,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
             if(comPare()) {
                 val intent = Intent(this@LoginActivity, MainActivity::class.java) //메인페이지로 이동
                 intent.putExtra("USER_DATA", data) //name값 정의필요
-                intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList)
+                //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용으로 나중에 사용
                 startActivity(intent)
             } else {
                 Toast.makeText(this@LoginActivity, "아이디나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
