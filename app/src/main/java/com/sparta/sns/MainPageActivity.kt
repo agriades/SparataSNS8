@@ -16,6 +16,11 @@ class MainPageActivity : AppCompatActivity() {
     private lateinit var postWriterWho: String
     private lateinit var myPageIntent: Intent
 
+    //로그인 데이터 key값을 여기 저장!
+    companion object {
+        const val MY_LOGIN_DATA = "mylogindata"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,7 +28,7 @@ class MainPageActivity : AppCompatActivity() {
 
         initData()
 
-        myPageButton.text = "바뀜"  //여기서 회원가입 페이지에서 받은 이름 정보를 표기해야 합니다.
+        myPageButton.text = MY_LOGIN_DATA //지금은 key값 String이 그대로 노출되는데, value값으로 수정해 주세요!
         myPageIntent = Intent(this, MyPageActivity::class.java)  //MyPageActivity로 이동하는 부분까지만 작성
 
         postWriterTextView.text = writerName + postWriterWho
