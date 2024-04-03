@@ -1,16 +1,3 @@
 <resources>
     <string name="app_name">SNS</string>
-    <string name="str_writer">김유신</string>
-    <string name="str_post">나는 오늘 밥을 먹었다. 너무 맛있었다. 근데 배가 불러서 다 먹지를 못했다. 주머니에 넣어서 싸가고 싶었는데 엄마한테 혼날 뻔했다. 억울해. 집에나 가야지.</string>
-    <string name="str_dsc1">게시글 이미지</string>
-    <string name="str_dsc2">좋아요 버튼 이미지</string>
-    <string name="str_dsc3">싫어요 버튼 이미지</string>
-    <string name="str_comment1_writer">강감찬</string>
-    <string name="str_comment1">당연히 혼나지 바보 멍청아</string>
-    <string name="str_comment2_writer">이순신</string>
-    <string name="str_comment2">장보고 안 와?</string>
-    <string name="str_like">52</string>
-    <string name="str_dislike">7</string>
-    <string name="str_toast_like">좋아요!</string>
-    <string name="str_toast_dislike">싫어요..</string>
 </resources>
