@@ -63,12 +63,12 @@ class DetailPageActivity : AppCompatActivity() {
 
     private fun initData() {
 
-        tvWriter.text = intent.getStringExtra("") ?: "작성자"
-        tvPost.text = intent.getStringExtra("") ?: "전체 게시글 내용"
-        tvComment1Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
-        tvComment1.text = intent.getStringExtra("") ?: "댓글 내용"
-        tvComment2Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
-        tvComment2.text = intent.getStringExtra("") ?: "댓글 내용"
+        tvWriter.text = intent.getStringExtra("post_writer") ?: "작성자"
+        tvPost.text = intent.getStringExtra("post_description") ?: "전체 게시글 내용"
+//        tvComment1Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
+//        tvComment1.text = intent.getStringExtra("") ?: "댓글 내용"
+//        tvComment2Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
+//        tvComment2.text = intent.getStringExtra("") ?: "댓글 내용"
         // 게시글과 댓글의 작성자 및 내용을 intent를 통해 받아온 값으로 입력되도록 구현했습니다.
 
     }

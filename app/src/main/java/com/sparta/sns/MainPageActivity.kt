@@ -3,6 +3,7 @@ package com.sparta.sns
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import org.w3c.dom.Text
@@ -12,9 +13,15 @@ class MainPageActivity : AppCompatActivity() {
     //클래스 내에서(private) 사용할 변수 모아두기. 늦은 초기화!
     private lateinit var myPageButton: TextView
     private lateinit var postWriterTextView: TextView
+    private lateinit var postDescriptionTextView: TextView
     private lateinit var writerName: String
     private lateinit var postWriterWho: String
     private lateinit var myPageIntent: Intent
+    private lateinit var detailPageIntent: Intent
+    private lateinit var detailPageButton: LinearLayout
+    //private lateinit var detailPageButton2: LinearLayout 게시글 총 2개일 예정
+
+
 
     //로그인 데이터 key값을 여기 저장!
     companion object {
@@ -29,10 +36,18 @@ class MainPageActivity : AppCompatActivity() {
         initData()
 
         myPageButton.text = MY_LOGIN_DATA //지금은 key값 String이 그대로 노출되는데, value값으로 수정해 주세요!
-        myPageIntent = Intent(this,ProfileActivity::class.java)
+        myPageIntent = Intent(this, ProfileActivity::class.java)
+        detailPageIntent = Intent(this, DetailPageActivity::class.java)
+
         postWriterTextView.text = writerName + postWriterWho
-        myPageButton.setOnClickListener{
+        myPageButton.setOnClickListener {
             startActivity(myPageIntent)
+        }
+        detailPageButton.setOnClickListener {
+            //정보 보내기
+            detailPageIntent.putExtra("post_writer", writerName)
+            detailPageIntent.putExtra("post_description", postDescriptionTextView.text.toString())
+            startActivity(detailPageIntent)
         }
     }
 
@@ -40,7 +55,12 @@ class MainPageActivity : AppCompatActivity() {
     private fun initData() {
         myPageButton = findViewById<TextView>(R.id.tv_member_user)
         postWriterTextView = findViewById<TextView>(R.id.post_tv_writer)
+        postDescriptionTextView = findViewById<TextView>(R.id.post_tv_description)
         writerName = "황수영" //저장된 게시글에서 해당되는 작성자 명을 불러와 주세요.
         postWriterWho = resources.getString(R.string.post_writer_who) //" 님이 포스트를 올렸습니다."
+        detailPageButton = findViewById<LinearLayout>(R.id.post_ll)
+
     }
+
+
 }
