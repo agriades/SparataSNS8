@@ -56,11 +56,24 @@ class DetailPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage)
 
-        initView()
+        initData()
+        initListener()
 
     }
 
-    private fun initView() {
+    private fun initData() {
+
+        tvWriter.text = intent.getStringExtra("") ?: "작성자"
+        tvPost.text = intent.getStringExtra("") ?: "전체 게시글 내용"
+        tvComment1Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
+        tvComment1.text = intent.getStringExtra("") ?: "댓글 내용"
+        tvComment2Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
+        tvComment2.text = intent.getStringExtra("") ?: "댓글 내용"
+        // 게시글과 댓글의 작성자 및 내용을 intent를 통해 받아온 값으로 입력되도록 구현했습니다.
+
+    }
+
+    private fun initListener() {
 
         var numLike = getString(R.string.str_like).toInt() // 기본 좋아요 숫자를 string.xml에서 관리하도록 했습니다.
         var numDislike = getString(R.string.str_dislike).toInt()
@@ -77,20 +90,9 @@ class DetailPageActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.str_toast_dislike), Toast.LENGTH_SHORT).show()
         } // 싫어요 버튼도 좋아요 버튼과 같은 동작입니다
 
-
-        tvWriter.text = intent.getStringExtra("") ?: "작성자"
-        tvPost.text = intent.getStringExtra("") ?: "전체 게시글 내용"
-        tvComment1Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
-        tvComment1.text = intent.getStringExtra("") ?: "댓글 내용"
-        tvComment2Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
-        tvComment2.text = intent.getStringExtra("") ?: "댓글 내용"
-        // 게시글과 댓글의 작성자 및 내용을 intent를 통해 받아온 값으로 입력되도록 구현했습니다.
-
-
         btBack.setOnClickListener {
             finish()
         }
-
     }
 
 
