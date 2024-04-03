@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
 
             if(comPare()) {
-                val intent = Intent(this@LoginActivity, MainActivity::class.java) //메인페이지로 이동
+                val intent = Intent(this@LoginActivity, MainPageActivity::class.java) //메인페이지로 이동
                 intent.putExtra("USER_DATA", data) //name 값 정의필요
                 //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용 으로 나중에 사용
                 startActivity(intent)

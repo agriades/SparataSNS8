@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SNS</string>
+    <string name="str_writer">Hayden</string>
+    <string name="str_post">I ate today. It was so delicious. But I was full, so I couldn\'t finish it. I wanted to put it in my pocket, but I almost got in trouble by my mom. It\'s unfair. I should go home.</string>
+    <string name="str_dsc1">post image</string>
+    <string name="str_dsc2">like button image</string>
+    <string name="str_dsc3">dislike button image</string>
+    <string name="str_comment1_writer">Alex</string>
+    <string name="str_comment1">Of course, you\'ll get in trouble, stupid</string>
+    <string name="str_comment2_writer">Kaiden</string>
+    <string name="str_comment2">Aren\'t you going to go grocery shopping?</string>
+    <string name="str_like">52</string>
+    <string name="str_dislike">7</string>
+    <string name="str_toast_like">LIKE!</string>
+    <string name="str_toast_dislike">DISLIKE—</string>
+    <string name="post_writer_who">&#160;님이 포스트를 올렸습니다.</string>
+    <string name="post_description">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+    <string name="post_description_2">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+    <string name="name">이름</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="login">로그인</string>
+    <string name="register">회원가입</string>
+    <string name="into">등록하기</string>
+    <string name="compare_id">아이디 중복 확인</string>
+    <string name="check">확인</string>
+    <string name="mail">이메일</string>
+    <string name="compare_password">비밀번호 확인</string>
+</resources>
