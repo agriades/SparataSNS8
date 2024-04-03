@@ -14,6 +14,7 @@ class MainPageActivity : AppCompatActivity() {
     private lateinit var postWriterTextView: TextView
     private lateinit var writerName: String
     private lateinit var postWriterWho: String
+    private lateinit var myPageIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +23,9 @@ class MainPageActivity : AppCompatActivity() {
 
         initData()
         myPageButton.text = "바뀜"  //여기서 회원가입 페이지에서 받은 이름 정보를 표기해야 합니다.
-        postWriterTextView.text = writerName + postWriterWho
+        myPageIntent = Intent(this, MyPageActivity::class.java)  //MyPageActivity로 이동하는 부분까지만 작성
 
-        //MyPageActivity로 이동하는 부분까지만 작성
-        val myPageIntent = Intent(this, MyPageActivity::class.java)
+        postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener{
             startActivity(myPageIntent)
         }
