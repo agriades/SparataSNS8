@@ -39,12 +39,10 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setUpData() {
         val intent = intent
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("test", UserEntity::class.java)?.let {
-                userData = it
-            }
+        userData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("test", UserEntity::class.java)!!
         } else {
-            userData = intent.getSerializableExtra("test") as UserEntity
+            (intent.getParcelableExtra("test") as? UserEntity)!!
         }
 
         val name = userData.name
@@ -53,11 +51,10 @@ class ProfileActivity : AppCompatActivity() {
         tvId.text = "아이디: $id"
     }
 
-    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private fun setUpBackButtonListener() {
         ivBack.setOnClickListener {
             this.finish()
-            applyAnimationClose(R.anim.none_enter, R.anim.slide_up_enter)
+            applyAnimationClose(R.anim.none_enter, R.anim.slide_down_enter)
 
         }
     }
