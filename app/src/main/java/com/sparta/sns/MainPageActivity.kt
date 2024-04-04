@@ -1,6 +1,7 @@
 package com.sparta.sns
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -29,7 +30,7 @@ class MainPageActivity : AppCompatActivity() {
         initData()
 
         myPageButton.text = MY_LOGIN_DATA //지금은 key값 String이 그대로 노출되는데, value값으로 수정해 주세요!
-        myPageIntent = Intent(this, MyPageActivity::class.java)  //MyPageActivity로 이동하는 부분까지만 작성
+        myPageIntent = Intent(this, ProfileActivity::class.java)  //MyPageActivity로 이동하는 부분까지만 작성
 
         postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener{
