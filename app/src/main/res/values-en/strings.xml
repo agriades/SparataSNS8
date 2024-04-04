@@ -27,4 +27,8 @@
     <string name="check">확인</string>
     <string name="mail">이메일</string>
     <string name="compare_password">비밀번호 확인</string>
+    <string name="profile_name_tag">Name:</string>
+    <string name="profile_id_tag">ID:</string>
+    <string name="profile_introduction_tag">introduction</string>
+    <string name="profile_introduction_content">Hello. Nice to meet you. </string>
 </resources>
