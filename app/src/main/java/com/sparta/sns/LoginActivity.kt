@@ -121,7 +121,7 @@ class LoginActivity : AppCompatActivity() {
                 intent.putExtra("USER_DATA", data) //name 값 정의필요
                 //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용 으로 나중에 사용
                 startActivity(intent)
-
+                overridePendingTransition(R.anim.left_enter, R.anim.left_exit)
             } else {
                 Toast.makeText(this@LoginActivity, "아이디나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -130,6 +130,7 @@ class LoginActivity : AppCompatActivity() {
 
         registerButton.setOnClickListener {
             resultLauncher.launch(Intent(this@LoginActivity, RegisterActivity::class.java))
+            overridePendingTransition(R.anim.right_enter, R.anim.right_exit)
         }
     }
 
