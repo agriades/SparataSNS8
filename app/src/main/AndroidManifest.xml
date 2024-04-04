@@ -16,7 +16,7 @@
             android:name=".DetailPageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPageActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainPageActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

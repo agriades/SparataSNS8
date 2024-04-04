@@ -18,11 +18,11 @@ class LoginActivity : AppCompatActivity() {
     private val dataList = ArrayList<UserEntity>()
 
     private val idEditTextView: EditText by lazy {
-        findViewById(R.id.idEditTextView)
+        findViewById(R.id.id_edit_textView)
     }
 
     private val loginButton: AppCompatButton by lazy {
-        findViewById(R.id.loginButton)
+        findViewById(R.id.login_button)
     }
 
     private val registerButton: AppCompatButton by lazy {
@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private val passwordEditTextView: EditText by lazy {
-        findViewById(R.id.passwordEditTextView)
+        findViewById(R.id.password_edit_textview)
     }
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
