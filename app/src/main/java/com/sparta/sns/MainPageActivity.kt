@@ -36,13 +36,12 @@ class MainPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //상단 4+인 유저 정보: 우선 고정해 작성 후 추가 과제 시 유동성 고려하기로 결정함.
-
         initData()
 
         myPageButton.text = userData.name
         myPageIntent = Intent(this, ProfileActivity::class.java)
         detailPageIntent = Intent(this, DetailPageActivity::class.java)
-
+        overridePendingTransition(R.anim.vertical_enter, R.anim.vertical_exit)
         postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener {
             Log.e("whynotworking", "왜 안되는거임...")
