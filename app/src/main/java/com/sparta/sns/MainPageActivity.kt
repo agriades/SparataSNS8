@@ -3,6 +3,7 @@ package com.sparta.sns
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -23,6 +24,7 @@ class MainPageActivity : AppCompatActivity() {
     //private lateinit var detailPageButton2: LinearLayout 게시글 총 2개일 예정
 
 
+    private val test = UserEntity( "1", "2", "3", "4")
 
     //로그인 데이터 key값을 여기 저장!
     companion object {
@@ -42,6 +44,8 @@ class MainPageActivity : AppCompatActivity() {
 
         postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener {
+            Log.e("whynotworking", "왜 안되는거임...")
+            myPageIntent.putExtra("test", test)
             startActivity(myPageIntent)
         }
         detailPageButton.setOnClickListener {
