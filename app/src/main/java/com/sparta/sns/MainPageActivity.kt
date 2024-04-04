@@ -65,15 +65,11 @@ class MainPageActivity : AppCompatActivity() {
         postWriterWho = resources.getString(R.string.post_writer_who) //" 님이 포스트를 올렸습니다."
         detailPageButton = findViewById<LinearLayout>(R.id.post_ll)
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)?.let {
-                userData = it
-            }
+        userData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)!!
         } else {
-            userData = intent.getSerializableExtra("USER_DATA") as UserEntity
+            (intent.getParcelableExtra("USER_DATA") as? UserEntity)!!
         }
+
     }
-
-
 }
