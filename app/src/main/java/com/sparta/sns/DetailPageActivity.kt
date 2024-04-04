@@ -56,6 +56,8 @@ class DetailPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        overridePendingTransition(R.anim.detail_left_in,R.anim.detail_none)
+
         initData()
         initListener()
 
@@ -92,6 +94,7 @@ class DetailPageActivity : AppCompatActivity() {
 
         btBack.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.detail_none,R.anim.detail_left_out)
         }
     }
 
