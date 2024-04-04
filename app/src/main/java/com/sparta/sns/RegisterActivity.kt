@@ -11,31 +11,31 @@ import androidx.appcompat.widget.AppCompatButton
 class RegisterActivity : AppCompatActivity(){
 
     private val openButton: AppCompatButton by lazy {
-        findViewById(R.id.openButton)
+        findViewById(R.id.open_button)
     }
 
     private val compareButton: AppCompatButton by lazy {
-        findViewById(R.id.compareButton)
+        findViewById(R.id.compare_button)
     }
 
     private val compareEdit: EditText by lazy {
-        findViewById(R.id.compareEdit)
+        findViewById(R.id.compare_edit)
     }
 
     private val nameEditTextView: EditText by lazy {
-        findViewById(R.id.nameEditTextView)
+        findViewById(R.id.name_edit_textview)
     }
 
     private val idEditTextView: EditText by lazy {
-        findViewById(R.id.idEditTextView)
+        findViewById(R.id.id_edit_textview)
     }
 
     private val passwordEditTextView: EditText by lazy {
-        findViewById(R.id.passwordEditTextView)
+        findViewById(R.id.password_edit_textview)
     }
 
     private val mailEditTextView: EditText by lazy {
-        findViewById(R.id.mailEditTextView)
+        findViewById(R.id.mail_edit_textview)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +78,7 @@ class RegisterActivity : AppCompatActivity(){
         compareButton.setOnClickListener {
             if(passwordEditTextView.text.toString() == compareEdit.text.toString()
                 && compareEdit.text.toString().isNotEmpty()) {
-                compareButton.setBackgroundResource(R.drawable.button_compare)
+                compareButton.setBackgroundResource(R.drawable.bg_register_bt)
             } else {
                 Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

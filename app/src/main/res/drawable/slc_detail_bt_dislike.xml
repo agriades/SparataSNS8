@@ -2,12 +2,12 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_pressed="true"
-        android:drawable="@drawable/ic_like_click" />
+        android:drawable="@drawable/ic_detail_bt_dislike_clk" />
 
     <item android:state_focused="true"
-        android:drawable="@drawable/ic_like_click" />
+        android:drawable="@drawable/ic_detail_bt_dislike_clk" />
 
     <item
-        android:drawable="@drawable/ic_like_default" />
+        android:drawable="@drawable/ic_detail_bt_dislike_def" />
 
 </selector>
