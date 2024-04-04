@@ -1,5 +1,6 @@
 package com.sparta.sns
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,10 +11,16 @@ import androidx.core.view.WindowInsetsCompat
 
 class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var ivBack: ImageView
-    private lateinit var tvName: TextView
-    private lateinit var tvId: TextView
-    private lateinit var tvIntroduce: TextView
+    private val ivBack: ImageView by lazy {
+        findViewById(R.id.iv_back)
+    }
+    private val tvName: TextView by lazy {
+        findViewById(R.id.tv_name)
+    }
+    private val tvId: TextView by lazy {
+        findViewById(R.id.tv_id)
+    }
+    private lateinit var userData: UserEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,24 +31,24 @@ class ProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        setUpView()
         setUpData()
         setUpBackButtonListener()
     }
 
-    private fun setUpView() {
-        ivBack = findViewById(R.id.iv_back)
-        tvName = findViewById(R.id.tv_name)
-        tvId = findViewById(R.id.tv_id)
-        tvIntroduce = findViewById(R.id.tv_introduce)
-    }
-
     private fun setUpData() {
         val intent = intent
-        val id = intent.getStringExtra("name") ?: "입력된 내용이 없습니다."
-        val pw = intent.getStringExtra("id") ?: "입력된 내용이 없습니다."
-        tvName.text = "이름: $id"
-        tvId.text = "아이디: $pw"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("test", UserEntity::class.java)?.let {
+                userData = it
+            }
+        } else {
+            userData = intent.getSerializableExtra("test") as UserEntity
+        }
+
+        val name = userData.name
+        val id = userData.id
+        tvName.text = "이름: $name"
+        tvId.text = "아이디: $id"
     }
 
     private fun setUpBackButtonListener() {
