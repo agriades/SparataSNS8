@@ -21,6 +21,7 @@ class MainPageActivity : AppCompatActivity() {
     private lateinit var myPageIntent: Intent
     private lateinit var detailPageIntent: Intent
     private lateinit var detailPageButton: LinearLayout
+    private lateinit var userData: UserEntity
     //private lateinit var detailPageButton2: LinearLayout 게시글 총 2개일 예정
 
 
@@ -38,14 +39,14 @@ class MainPageActivity : AppCompatActivity() {
 
         initData()
 
-        myPageButton.text = MY_LOGIN_DATA //지금은 key값 String이 그대로 노출되는데, value값으로 수정해 주세요!
+        myPageButton.text = userData.name
         myPageIntent = Intent(this, ProfileActivity::class.java)
         detailPageIntent = Intent(this, DetailPageActivity::class.java)
 
         postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener {
             Log.e("whynotworking", "왜 안되는거임...")
-            myPageIntent.putExtra("test", test)
+            myPageIntent.putExtra("test", userData)
             startActivity(myPageIntent)
         }
         detailPageButton.setOnClickListener {
@@ -65,6 +66,14 @@ class MainPageActivity : AppCompatActivity() {
         postWriterWho = resources.getString(R.string.post_writer_who) //" 님이 포스트를 올렸습니다."
         detailPageButton = findViewById<LinearLayout>(R.id.post_ll)
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)?.let {
+                userData = it
+            }
+        } else {
+            userData = intent.getSerializableExtra("USER_DATA") as UserEntity
+        }
     }
 
 

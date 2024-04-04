@@ -121,6 +121,7 @@ class LoginActivity : AppCompatActivity() {
                 intent.putExtra("USER_DATA", data) //name 값 정의필요
                 //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용 으로 나중에 사용
                 startActivity(intent)
+
             } else {
                 Toast.makeText(this@LoginActivity, "아이디나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
