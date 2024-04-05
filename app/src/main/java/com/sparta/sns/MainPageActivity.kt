@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import org.w3c.dom.Text
 
@@ -32,17 +33,26 @@ class MainPageActivity : AppCompatActivity() {
         const val MY_LOGIN_DATA = "mylogindata"
     }
 
+    //Android API 33부터 onBackPressed() 콜백이 deprecated 되었다.
+    //https://angangmoddi.tistory.com/317
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            finish()
+            overridePendingTransition(R.anim.vertical_exit, R.anim.vertical_exit)
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //상단 4+인 유저 정보: 우선 고정해 작성 후 추가 과제 시 유동성 고려하기로 결정함.
-
         initData()
 
         myPageButton.text = userData.name
         myPageIntent = Intent(this, ProfileActivity::class.java)
         detailPageIntent = Intent(this, DetailPageActivity::class.java)
-
+        overridePendingTransition(R.anim.vertical_enter, R.anim.vertical_exit)
         postWriterTextView.text = writerName + postWriterWho
         myPageButton.setOnClickListener {
             Log.e("whynotworking", "왜 안되는거임...")
@@ -55,6 +65,9 @@ class MainPageActivity : AppCompatActivity() {
             detailPageIntent.putExtra("post_description", postDescriptionTextView.text.toString())
             startActivity(detailPageIntent)
         }
+
+        //백버튼
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     //늦은 초기화 변수의 값 지정
@@ -66,15 +79,11 @@ class MainPageActivity : AppCompatActivity() {
         postWriterWho = resources.getString(R.string.post_writer_who) //" 님이 포스트를 올렸습니다."
         detailPageButton = findViewById<LinearLayout>(R.id.post_ll)
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)?.let {
-                userData = it
-            }
+        userData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)!!
         } else {
-            userData = intent.getSerializableExtra("USER_DATA") as UserEntity
+            (intent.getParcelableExtra("USER_DATA") as? UserEntity)!!
         }
+
     }
-
-
 }

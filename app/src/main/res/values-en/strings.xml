@@ -14,9 +14,7 @@
     <string name="str_dislike">7</string>
     <string name="str_toast_like">LIKE!</string>
     <string name="str_toast_dislike">DISLIKE—</string>
-    <string name="post_writer_who">&#160;님이 포스트를 올렸습니다.</string>
-    <string name="post_description">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다. meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
-    <string name="post_description_2">meverse 상에서 새 포스트를 올리면 여기에 글이 작성됩니다.</string>
+
     <string name="name">name</string>
     <string name="id">Id</string>
     <string name="password">Password</string>
@@ -27,6 +25,11 @@
     <string name="check">Check</string>
     <string name="mail">Email</string>
     <string name="compare_password">Password Check</string>
+
+    <string name="post_writer_who">&#160;uploaded a new post.</string>
+    <string name="post_description">A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here.</string>
+    <string name="post_description_2">A newly uploaded meverse post is shown here.</string>
+
     <string name="profile_name_tag">Name:</string>
     <string name="profile_id_tag">ID:</string>
     <string name="profile_introduction_tag">introduction</string>
