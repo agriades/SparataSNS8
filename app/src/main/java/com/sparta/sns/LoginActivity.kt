@@ -41,9 +41,10 @@ class LoginActivity : AppCompatActivity() {
 
             if (result.resultCode == Activity.RESULT_OK) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    result.data?.getParcelableExtra(Constants.USER_DATA_KEY, UserEntity::class.java)?.let {
-                        userData = it
-                    }
+                    result.data?.getParcelableExtra(Constants.USER_DATA_KEY, UserEntity::class.java)
+                        ?.let {
+                            userData = it
+                        }
                 } else {
                     result.data?.getParcelableExtra<UserEntity>(Constants.USER_DATA_KEY)?.let {
                         userData = it
@@ -111,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnSigup.setOnClickListener {
             resultLauncher.launch(Intent(this@LoginActivity, RegisterActivity::class.java))
-            applyAnimationOpen(R.anim.slide_right_enter,R.anim.none_enter)
+            applyAnimationOpen(R.anim.slide_right_enter, R.anim.none_enter)
         }
     }
 

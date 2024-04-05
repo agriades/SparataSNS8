@@ -58,7 +58,7 @@ class DetailPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        applyAnimationOpen(R.anim.slide_left_enter,R.anim.none_enter)
+        applyAnimationOpen(R.anim.slide_left_enter, R.anim.none_enter)
 
         initData()
         initListener()
@@ -98,7 +98,7 @@ class DetailPageActivity : AppCompatActivity() {
 
         btBack.setOnClickListener {
             finish()
-            applyAnimationClose(R.anim.none_enter,R.anim.slide_left_exit)
+            applyAnimationClose(R.anim.none_enter, R.anim.slide_left_exit)
         }
     }
 
@@ -131,7 +131,7 @@ class DetailPageActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 // 뒤로 가기 버튼이 눌렸을 때 처리 동작
                 finish()
-                applyAnimationClose(R.anim.none_enter,R.anim.slide_left_exit)
+                applyAnimationClose(R.anim.none_enter, R.anim.slide_left_exit)
             }
         }
         this.onBackPressedDispatcher.addCallback(this, callback)

@@ -33,7 +33,7 @@ class ProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        applyAnimationOpen(R.anim.slide_up_enter,R.anim.none_enter)
+        applyAnimationOpen(R.anim.slide_up_enter, R.anim.none_enter)
         setUpData()
         setUpBackButtonListener()
         addOnBackPressedCallback()
