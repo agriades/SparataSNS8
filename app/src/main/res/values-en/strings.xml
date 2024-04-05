@@ -30,8 +30,8 @@
     <string name="post_description">A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here.</string>
     <string name="post_description_2">A newly uploaded meverse post is shown here.</string>
 
-    <string name="profile_name_tag">Name:</string>
-    <string name="profile_id_tag">ID:</string>
+    <string name="profile_name_tag">Name:&#160;</string>
+    <string name="profile_id_tag">ID:&#160;</string>
     <string name="profile_introduction_tag">introduction</string>
     <string name="profile_introduction_content">Hello. Nice to meet you. </string>
 </resources>

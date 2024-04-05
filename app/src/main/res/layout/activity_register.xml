@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/title_imageview"
+        android:id="@+id/iv_rg_title"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="10dp"
@@ -16,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mail_textview"
+        android:id="@+id/tv_rg_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -28,10 +27,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_imageview" />
+        app:layout_constraintTop_toBottomOf="@id/iv_rg_title" />
 
     <EditText
-        android:id="@+id/mail_edit_textview"
+        android:id="@+id/et_rg_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -40,10 +39,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mail_textview" />
+        app:layout_constraintTop_toBottomOf="@id/tv_rg_email" />
 
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/tv_rg_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -55,10 +54,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mail_edit_textview" />
+        app:layout_constraintTop_toBottomOf="@id/et_rg_email" />
 
     <EditText
-        android:id="@+id/name_edit_textview"
+        android:id="@+id/et_rg_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -67,10 +66,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView" />
+        app:layout_constraintTop_toBottomOf="@id/tv_rg_name" />
 
     <TextView
-        android:id="@+id/id_textview"
+        android:id="@+id/tv_rg_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -82,10 +81,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_edit_textview" />
+        app:layout_constraintTop_toBottomOf="@id/et_rg_name" />
 
     <EditText
-        android:id="@+id/id_edit_textview"
+        android:id="@+id/et_rg_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -94,10 +93,37 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_textview" />
+        app:layout_constraintTop_toBottomOf="@id/tv_rg_id" />
+
 
     <TextView
-        android:id="@+id/compare_password"
+        android:id="@+id/tv_rg_pw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/password"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_rg_id" />
+
+    <EditText
+        android:id="@+id/et_rg_pw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_rg_pw" />
+
+    <TextView
+        android:id="@+id/tv_rg_cp_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -109,61 +135,35 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_edit_textview" />
+        app:layout_constraintTop_toBottomOf="@id/et_rg_pw" />
 
     <EditText
-        android:id="@+id/compare_edit"
+        android:id="@+id/et_rg_cp_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@id/compare_button"
+        app:layout_constraintEnd_toStartOf="@id/btn_rg_compare"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/compare_password" />
+        app:layout_constraintTop_toBottomOf="@id/tv_rg_cp_pw" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/compare_button"
+        android:id="@+id/btn_rg_compare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_register_bt_dis"
         android:text="@string/check"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/compare_edit"
+        app:layout_constraintBottom_toBottomOf="@id/et_rg_cp_pw"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/compare_edit"
-        app:layout_constraintTop_toTopOf="@id/compare_edit" />
-
-    <TextView
-        android:id="@+id/password_textview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/password"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_edit_textview" />
-
-    <EditText
-        android:id="@+id/password_edit_textview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="16dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_textview" />
+        app:layout_constraintStart_toEndOf="@id/et_rg_cp_pw"
+        app:layout_constraintTop_toTopOf="@id/et_rg_cp_pw" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/open_button"
+        android:id="@+id/btn_signup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -172,6 +172,6 @@
         android:text="@string/into"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/compare_edit" />
+        app:layout_constraintTop_toBottomOf="@id/et_rg_cp_pw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
