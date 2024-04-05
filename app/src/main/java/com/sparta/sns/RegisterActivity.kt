@@ -69,6 +69,7 @@ class RegisterActivity : AppCompatActivity(){
                 putExtra(LoginActivity.MY_LOGIN_DATA, data)
             })
             finish()
+            overridePendingTransition(R.anim.left_enter, R.anim.left_exit)
         }
     }
 

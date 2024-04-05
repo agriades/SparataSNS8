@@ -1,10 +1,12 @@
 package com.sparta.sns
 
+import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -37,12 +39,10 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setUpData() {
         val intent = intent
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("test", UserEntity::class.java)?.let {
-                userData = it
-            }
+        userData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("test", UserEntity::class.java)!!
         } else {
-            userData = intent.getSerializableExtra("test") as UserEntity
+            (intent.getParcelableExtra("test") as? UserEntity)!!
         }
 
         val name = userData.name
@@ -54,6 +54,18 @@ class ProfileActivity : AppCompatActivity() {
     private fun setUpBackButtonListener() {
         ivBack.setOnClickListener {
             this.finish()
+            applyAnimationClose(R.anim.none_enter, R.anim.slide_down_enter)
+
+        }
+    }
+
+    private fun applyAnimationClose(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_CLOSE, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
         }
     }
 }
