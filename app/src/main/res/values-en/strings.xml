@@ -14,19 +14,22 @@
     <string name="str_dislike">7</string>
     <string name="str_toast_like">LIKE!</string>
     <string name="str_toast_dislike">DISLIKE—</string>
+
+    <string name="name">name</string>
+    <string name="id">Id</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="into">Join membership</string>
+    <string name="compare_id">Identification redundancy check</string>
+    <string name="check">Check</string>
+    <string name="mail">Email</string>
+    <string name="compare_password">Password Check</string>
+
     <string name="post_writer_who">&#160;uploaded a new post.</string>
     <string name="post_description">A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here. A newly uploaded meverse post is shown here.</string>
     <string name="post_description_2">A newly uploaded meverse post is shown here.</string>
-    <string name="name">이름</string>
-    <string name="id">아이디</string>
-    <string name="password">비밀번호</string>
-    <string name="login">로그인</string>
-    <string name="register">회원가입</string>
-    <string name="into">등록하기</string>
-    <string name="compare_id">아이디 중복 확인</string>
-    <string name="check">확인</string>
-    <string name="mail">이메일</string>
-    <string name="compare_password">비밀번호 확인</string>
+
     <string name="profile_name_tag">Name:</string>
     <string name="profile_id_tag">ID:</string>
     <string name="profile_introduction_tag">introduction</string>
