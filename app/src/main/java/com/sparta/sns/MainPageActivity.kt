@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import org.w3c.dom.Text
 
@@ -32,6 +33,16 @@ class MainPageActivity : AppCompatActivity() {
         const val MY_LOGIN_DATA = "mylogindata"
     }
 
+    //Android API 33부터 onBackPressed() 콜백이 deprecated 되었다.
+    //https://angangmoddi.tistory.com/317
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            finish()
+            overridePendingTransition(R.anim.vertical_exit, R.anim.vertical_exit)
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,6 +65,9 @@ class MainPageActivity : AppCompatActivity() {
             detailPageIntent.putExtra("post_description", postDescriptionTextView.text.toString())
             startActivity(detailPageIntent)
         }
+
+        //백버튼
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     //늦은 초기화 변수의 값 지정
