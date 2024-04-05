@@ -1,15 +1,13 @@
 package com.sparta.sns
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import org.w3c.dom.Text
 
 class MainPageActivity : AppCompatActivity() {
 
@@ -22,52 +20,33 @@ class MainPageActivity : AppCompatActivity() {
     private lateinit var myPageIntent: Intent
     private lateinit var detailPageIntent: Intent
     private lateinit var detailPageButton: LinearLayout
-    private lateinit var userData: UserEntity
+    private var userData = UserEntity()
+
     //private lateinit var detailPageButton2: LinearLayout 게시글 총 2개일 예정
-
-
-    private val test = UserEntity( "1", "2", "3", "4")
-
-    //로그인 데이터 key값을 여기 저장!
-    companion object {
-        const val MY_LOGIN_DATA = "mylogindata"
-    }
-
     //Android API 33부터 onBackPressed() 콜백이 deprecated 되었다.
     //https://angangmoddi.tistory.com/317
-    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            finish()
-            overridePendingTransition(R.anim.vertical_exit, R.anim.vertical_exit)
-        }
-    }
-
+//    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+//        override fun handleOnBackPressed() {
+//            finish()
+//            applyAnimationClose(R.anim.none_enter, R.anim.slide_down_exit)
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //상단 4+인 유저 정보: 우선 고정해 작성 후 추가 과제 시 유동성 고려하기로 결정함.
         initData()
-
         myPageButton.text = userData.name
         myPageIntent = Intent(this, ProfileActivity::class.java)
         detailPageIntent = Intent(this, DetailPageActivity::class.java)
-        overridePendingTransition(R.anim.vertical_enter, R.anim.vertical_exit)
         postWriterTextView.text = writerName + postWriterWho
-        myPageButton.setOnClickListener {
-            Log.e("whynotworking", "왜 안되는거임...")
-            myPageIntent.putExtra("test", userData)
-            startActivity(myPageIntent)
-        }
-        detailPageButton.setOnClickListener {
-            //정보 보내기
-            detailPageIntent.putExtra("post_writer", writerName)
-            detailPageIntent.putExtra("post_description", postDescriptionTextView.text.toString())
-            startActivity(detailPageIntent)
-        }
+        setupListener()
+        //백버튼 함수화
+        addOnBackPressedCallback()
 
         //백버튼
-        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+//        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     //늦은 초기화 변수의 값 지정
@@ -79,11 +58,52 @@ class MainPageActivity : AppCompatActivity() {
         postWriterWho = resources.getString(R.string.post_writer_who) //" 님이 포스트를 올렸습니다."
         detailPageButton = findViewById<LinearLayout>(R.id.post_ll)
 
-        userData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("USER_DATA", UserEntity::class.java)!!
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(Constants.USER_DATA_KEY, UserEntity::class.java)?.let {
+                userData = it
+            }
         } else {
-            (intent.getParcelableExtra("USER_DATA") as? UserEntity)!!
+            intent.getParcelableExtra<UserEntity>(Constants.USER_DATA_KEY)?.let {
+                userData = it
+            }
         }
+    }
 
+    private fun setupListener() {
+        myPageButton.setOnClickListener {
+            myPageIntent.putExtra(Constants.USER_DATA_KEY, userData)
+            startActivity(myPageIntent)
+        }
+        detailPageButton.setOnClickListener {
+            //정보 보내기
+            detailPageIntent.putExtra(Constants.WRITER_KEY, writerName)
+            detailPageIntent.putExtra(
+                Constants.CONTENT_KEY,
+                postDescriptionTextView.text.toString()
+            )
+            startActivity(detailPageIntent)
+        }
+    }
+
+    private fun applyAnimationClose(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_CLOSE, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
+        }
+    }
+
+    //백버튼 함수화
+    private fun addOnBackPressedCallback() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 뒤로 가기 버튼이 눌렸을 때 처리 동작
+                finish()
+                applyAnimationClose(R.anim.none_enter, R.anim.slide_right_exit)
+            }
+        }
+        this.onBackPressedDispatcher.addCallback(this, callback)
     }
 }

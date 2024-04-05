@@ -14,89 +14,111 @@ import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.internal.TextWatcherAdapter
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var data: UserEntity
+    private var userData = UserEntity()
     private val dataList = ArrayList<UserEntity>()
 
-    private val idEditTextView: EditText by lazy {
-        findViewById(R.id.id_edit_textView)
+    private val etId: EditText by lazy {
+        findViewById(R.id.et_login_id)
     }
 
-    private val loginButton: AppCompatButton by lazy {
-        findViewById(R.id.login_button)
+    private val btnLogin: AppCompatButton by lazy {
+        findViewById(R.id.btn_login)
     }
 
-    private val registerButton: AppCompatButton by lazy {
-        findViewById(R.id.registerButton)
+    private val btnSigup: AppCompatButton by lazy {
+        findViewById(R.id.btn_signup)
     }
 
-    private val passwordEditTextView: EditText by lazy {
-        findViewById(R.id.password_edit_textview)
+    private val etPw: EditText by lazy {
+        findViewById(R.id.et_login_pw)
     }
 
-    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result: ActivityResult ->
-        if(result.resultCode != Activity.RESULT_OK) {
-            return@registerForActivityResult
-        }
-
-        if(result.resultCode == Activity.RESULT_OK) {
-
-            data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                result.data?.getParcelableExtra(MY_LOGIN_DATA, UserEntity::class.java)!!
-            } else {
-                (result.data?.getParcelableExtra(MY_LOGIN_DATA) as? UserEntity)!!
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                return@registerForActivityResult
             }
 
-            dataList += data
-            idEditTextView.setText(data.id)
-        } else {
-            Toast.makeText(this, "입력값이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+            if (result.resultCode == Activity.RESULT_OK) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    result.data?.getParcelableExtra(Constants.USER_DATA_KEY, UserEntity::class.java)?.let {
+                        userData = it
+                    }
+                } else {
+                    result.data?.getParcelableExtra<UserEntity>(Constants.USER_DATA_KEY)?.let {
+                        userData = it
+                    }
+                }
+
+                dataList += userData
+                etId.setText(userData.id)
+
+            } else {
+                Toast.makeText(this, "입력값이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        bindView()
-        initView()
+        setupListener()
     }
 
-    private fun initView() {
-        passwordEditTextView.addTextChangedListener(@SuppressLint("RestrictedApi")
+    private fun setupListener() {
+        etPw.addTextChangedListener(@SuppressLint("RestrictedApi")
         object : TextWatcherAdapter() {
 
             override fun onTextChanged(s: CharSequence, p1: Int, p2: Int, p3: Int) {
-                if(idEditTextView.length() > 0 && passwordEditTextView.length() > 0) {
-                    loginButton.isClickable = true
-                    loginButton.isEnabled = true
-                    loginButton.setBackgroundResource(R.drawable.bg_login_bt_def)
+                if (etId.length() > 0 && etPw.length() > 0) {
+                    btnLogin.isClickable = true
+                    btnLogin.isEnabled = true
+                    btnLogin.setBackgroundResource(R.drawable.bg_login_bt_def)
                 } else {
-                    loginButton.isEnabled = false
-                    loginButton.isClickable = false
+                    btnLogin.isEnabled = false
+                    btnLogin.isClickable = false
                 }
             }
         })
-        idEditTextView.addTextChangedListener(@SuppressLint("RestrictedApi")
+        etId.addTextChangedListener(@SuppressLint("RestrictedApi")
         object : TextWatcherAdapter() {
 
             override fun onTextChanged(s: CharSequence, p1: Int, p2: Int, p3: Int) {
-                if(passwordEditTextView.length() > 0 && idEditTextView.length() > 0) {
-                    loginButton.isClickable = true
-                    loginButton.isEnabled = true
-                    loginButton.setBackgroundResource(R.drawable.bg_login_bt_def)
+                if (etPw.length() > 0 && etId.length() > 0) {
+                    btnLogin.isClickable = true
+                    btnLogin.isEnabled = true
+                    btnLogin.setBackgroundResource(R.drawable.bg_login_bt_def)
                 } else {
-                    loginButton.isClickable = false
-                    loginButton.isEnabled = false
+                    btnLogin.isClickable = false
+                    btnLogin.isEnabled = false
                 }
             }
         })
+
+        btnLogin.setOnClickListener {
+
+            if (comPare()) {
+                val intent = Intent(this@LoginActivity, MainPageActivity::class.java) //메인페이지로 이동
+                intent.putExtra(Constants.USER_DATA_KEY, userData) //name 값 정의필요
+                //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용 으로 나중에 사용
+                startActivity(intent)
+                overridePendingTransition(R.anim.slide_left_enter, R.anim.none_enter)
+            } else {
+                Toast.makeText(this@LoginActivity, "아이디나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+        }
+
+        btnSigup.setOnClickListener {
+            resultLauncher.launch(Intent(this@LoginActivity, RegisterActivity::class.java))
+            applyAnimationOpen(R.anim.slide_right_enter,R.anim.none_enter)
+        }
     }
 
-    private fun comPare() : Boolean { //회원가입-> 로그인 -> 로그아웃 -> 로그인 할떄 데이터 손실 방지
-        for(i in 0 until dataList.size) {
-            if(idEditTextView.text.toString() == dataList[i].id && passwordEditTextView.text.toString() == dataList[i].password) {
-                data.apply {
+    private fun comPare(): Boolean { //회원가입-> 로그인 -> 로그아웃 -> 로그인 할떄 데이터 손실 방지
+        for (i in 0 until dataList.size) {
+            if (etId.text.toString() == dataList[i].id && etPw.text.toString() == dataList[i].password) {
+                userData.apply {
                     UserEntity(
                         id = dataList[i].id,
                         email = dataList[i].email,
@@ -112,29 +134,13 @@ class LoginActivity : AppCompatActivity() {
         return false
     }
 
-    private fun bindView() {
-
-        loginButton.setOnClickListener {
-
-            if(comPare()) {
-                val intent = Intent(this@LoginActivity, MainPageActivity::class.java) //메인페이지로 이동
-                intent.putExtra("USER_DATA", data) //name 값 정의필요
-                //intent.putParcelableArrayListExtra("USER_DATA_LIST", dataList) 확장용 으로 나중에 사용
-                startActivity(intent)
-                overridePendingTransition(R.anim.left_enter, R.anim.left_exit)
-            } else {
-                Toast.makeText(this@LoginActivity, "아이디나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+    private fun applyAnimationOpen(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_OPEN, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
         }
-
-        registerButton.setOnClickListener {
-            resultLauncher.launch(Intent(this@LoginActivity, RegisterActivity::class.java))
-            overridePendingTransition(R.anim.right_enter, R.anim.right_exit)
-        }
-    }
-
-    companion object {
-        const val MY_LOGIN_DATA = "mylogindata"
     }
 }

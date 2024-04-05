@@ -1,9 +1,12 @@
 package com.sparta.sns
 
+import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 
 class DetailPageActivity : AppCompatActivity() {
@@ -55,18 +58,19 @@ class DetailPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-
-        overridePendingTransition(R.anim.detail_left_in,R.anim.detail_none)
+        applyAnimationOpen(R.anim.slide_left_enter,R.anim.none_enter)
 
         initData()
         initListener()
+        //backpress처리
+        addOnBackPressedCallback()
 
     }
 
     private fun initData() {
 
-        tvWriter.text = intent.getStringExtra("post_writer") ?: "작성자"
-        tvPost.text = intent.getStringExtra("post_description") ?: "전체 게시글 내용"
+        tvWriter.text = intent.getStringExtra(Constants.WRITER_KEY) ?: "작성자"
+        tvPost.text = intent.getStringExtra(Constants.CONTENT_KEY) ?: "전체 게시글 내용"
 //        tvComment1Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
 //        tvComment1.text = intent.getStringExtra("") ?: "댓글 내용"
 //        tvComment2Writer.text = intent.getStringExtra("") ?: "댓글 작성자"
@@ -94,9 +98,42 @@ class DetailPageActivity : AppCompatActivity() {
 
         btBack.setOnClickListener {
             finish()
-            overridePendingTransition(R.anim.detail_none,R.anim.detail_left_out)
+            applyAnimationClose(R.anim.none_enter,R.anim.slide_left_exit)
         }
     }
 
 
+    //애니매이션 deprecate 처리
+    private fun applyAnimationClose(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_CLOSE, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
+        }
+    }
+
+    //애니매이션 deprecate 처리
+    private fun applyAnimationOpen(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_OPEN, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
+        }
+    }
+
+    //backpress처리
+    private fun addOnBackPressedCallback() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 뒤로 가기 버튼이 눌렸을 때 처리 동작
+                finish()
+                applyAnimationClose(R.anim.none_enter,R.anim.slide_left_exit)
+            }
+        }
+        this.onBackPressedDispatcher.addCallback(this, callback)
+    }
 }

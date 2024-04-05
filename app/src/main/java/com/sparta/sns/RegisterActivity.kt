@@ -2,88 +2,114 @@ package com.sparta.sns
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 
-class RegisterActivity : AppCompatActivity(){
+class RegisterActivity : AppCompatActivity() {
 
-    private val openButton: AppCompatButton by lazy {
-        findViewById(R.id.open_button)
+    private val btnSignUp: AppCompatButton by lazy {
+        findViewById(R.id.btn_signup)
     }
 
-    private val compareButton: AppCompatButton by lazy {
-        findViewById(R.id.compare_button)
+    private val btnCompare: AppCompatButton by lazy {
+        findViewById(R.id.btn_rg_compare)
     }
 
-    private val compareEdit: EditText by lazy {
-        findViewById(R.id.compare_edit)
+    private val etComparePassword: EditText by lazy {
+        findViewById(R.id.et_rg_cp_pw)
     }
 
-    private val nameEditTextView: EditText by lazy {
-        findViewById(R.id.name_edit_textview)
+    private val etName: EditText by lazy {
+        findViewById(R.id.et_rg_name)
     }
 
-    private val idEditTextView: EditText by lazy {
-        findViewById(R.id.id_edit_textview)
+    private val etId: EditText by lazy {
+        findViewById(R.id.et_rg_id)
     }
 
-    private val passwordEditTextView: EditText by lazy {
-        findViewById(R.id.password_edit_textview)
+    private val etPw: EditText by lazy {
+        findViewById(R.id.et_rg_pw)
     }
 
-    private val mailEditTextView: EditText by lazy {
-        findViewById(R.id.mail_edit_textview)
+    private val etEmail: EditText by lazy {
+        findViewById(R.id.et_rg_email)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        initViews()
-        bindViews()
+        btnSignUp.isEnabled = false
+        btnSignUp.isClickable = false
+        setUpListener()
+
+        addOnBackPressedCallback()
     }
 
-    private fun initViews() {
-
-        openButton.setOnClickListener {
+    private fun setUpListener() {
+        btnSignUp.setOnClickListener {
             val data = UserEntity(
-                id = idEditTextView.text.toString(),
-                email = mailEditTextView.text.toString(),
-                password = passwordEditTextView.text.toString(),
-                name = nameEditTextView.text.toString()
+                id = etId.text.toString(),
+                email = etEmail.text.toString(),
+                password = etPw.text.toString(),
+                name = etName.text.toString()
             )
 
-
-            if(nameEditTextView.text.toString().isEmpty()
-                || idEditTextView.text.toString().isEmpty()
-                || passwordEditTextView.text.toString().isEmpty()
-                || mailEditTextView.text.toString().isEmpty()
+            if (etName.text.toString().isEmpty()
+                || etId.text.toString().isEmpty()
+                || etPw.text.toString().isEmpty()
+                || etEmail.text.toString().isEmpty()
             ) {
                 Toast.makeText(this, "모든 항목을 작성해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             setResult(Activity.RESULT_OK, Intent().apply {
-                putExtra(LoginActivity.MY_LOGIN_DATA, data)
+                putExtra(Constants.USER_DATA_KEY, data)
             })
             finish()
-            overridePendingTransition(R.anim.left_enter, R.anim.left_exit)
+            applyAnimationClose(R.anim.none_enter, R.anim.slide_right_exit)
         }
-    }
 
-
-
-    private fun bindViews() {
-        compareButton.setOnClickListener {
-            if(passwordEditTextView.text.toString() == compareEdit.text.toString()
-                && compareEdit.text.toString().isNotEmpty()) {
-                compareButton.setBackgroundResource(R.drawable.bg_register_bt)
+        btnCompare.setOnClickListener {
+            if (etPw.text.toString() == etComparePassword.text.toString()
+                && etComparePassword.text.toString().isNotEmpty()
+            ) {
+                btnCompare.setBackgroundResource(R.drawable.bg_register_bt)
+                btnSignUp.isClickable = true
+                btnSignUp.isEnabled = true
             } else {
                 Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
         }
+    }
+
+    private fun applyAnimationClose(enterResId: Int, exitResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_CLOSE, enterResId, exitResId
+            )
+        } else {
+            overridePendingTransition(enterResId, exitResId)
+        }
+    }
+
+    private fun addOnBackPressedCallback() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 뒤로 가기 버튼이 눌렸을 때 처리 동작
+                finish()
+                applyAnimationClose(R.anim.none_enter, R.anim.slide_right_exit)
+
+            }
+        }
+
+        this.onBackPressedDispatcher.addCallback(this, callback)
     }
 }
